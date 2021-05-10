@@ -1,6 +1,6 @@
 <template>
   <div class="m-main">me
-    <el-button>默认按钮1</el-button>
+    <el-button>默认按钮12</el-button>
   </div>
 </template>
 
