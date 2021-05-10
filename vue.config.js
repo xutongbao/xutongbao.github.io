@@ -3,6 +3,7 @@ module.exports = {
   devServer: {
     open: true 
   },
+  outputDir: "docs",
   configureWebpack: (config) => {
     config.devtool = "source-map"
   }, 
