@@ -1,4 +1,4 @@
-![](static-files/m-home.png)
+![](static-files/book.gif)
 
 ![Build Status](https://img.shields.io/badge/build-passing-green.svg)
 ![Version 3.0.0](https://img.shields.io/badge/version-3.0.0-yellow.svg)
@@ -17,6 +17,28 @@
 ## 开发及部署文档
 - [托管node项目平台介绍](https://blog.csdn.net/xutongbao/article/details/116641092)
 - [github.io托管vue3.0项目](https://blog.csdn.net/xutongbao/article/details/116641459)
+
+
+## 页面展示
+
+以下为新蜂商城 Vue3 版本的页面预览：
+
+- 登录页
+
+![](static-files/m-login.png)
+
+- 首页
+
+![](static-files/m-home.png)
+
+- 详情页
+
+![](static-files/m-detail.png)
+
+- 书包页
+
+![](static-files/my-books.png)
+
 
 ## 联系作者
 
