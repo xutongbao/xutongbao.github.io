@@ -44,7 +44,9 @@ body{padding: 0;margin: 0;}
 .m-detail-role-lable{font-weight: bold;margin: 0 2px 0 0;}
 .m-detail-role{margin: 0 4px 0 0;}
 .m-detail-summary{margin: 4px;text-align: justify;font-size: 14px;}
-.m-my-books{overflow-y: auto;}
+.m-my-books{display: flex;flex-direction: column;overflow-y: auto; }
+.m-my-books-info{flex:1;overflow-y: auto;}
+.m-my-books-total-wrap{display: flex;line-height: 40px; height: 40px;border-top: 1px solid #ddd;}
 .m-my-books-empty{line-height: 100px;text-align: center;color: #333;}
 .m-my-books-item{display: flex;padding: 4px;}
 .m-my-books-item-img-wrap{display: flex; width: 100px;}
@@ -54,8 +56,10 @@ body{padding: 0;margin: 0;}
 .m-my-books-item-info{flex:1}
 .m-my-books-item-delete-wrap{display: flex;  width: 50px;text-align: center;}
 .m-my-books-item-delete-btn{margin: auto;}
-
-
+.m-book-price{font-weight: bold;color: red;}
+.m-my-books-check-all-wrap{margin: 0 0 0 5px; width: 60px;}
+.m-my-books-total-info{flex: 1}
+.m-my-books-pay{width: 100px;text-align: right;padding: 0 10px 0 0;}
 
 
 

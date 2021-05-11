@@ -14,6 +14,7 @@
     <div class="m-category-item-info">
       <div>{{ book.title }}</div>
       <Stars :number="book.stars" />
+      <div class="m-book-price">￥{{book.price}}</div>
       <button @click="handleShowDialog">添加</button>
     </div>
   </div>

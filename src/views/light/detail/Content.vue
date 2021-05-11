@@ -7,6 +7,7 @@
           <span class="m-detail-role-lable">主角:</span>
           <span v-for="(role, index) in detailBook.roles" :key="index" class="m-detail-role">{{role}}</span>
         </div>
+        <div class="m-book-price">￥{{detailBook.price}}</div>
         <div>
           <button class="m-btn" @click="handleSub">-</button>
           <input class="m-add-input" :value="detailBook.count" @input="handleInput" />

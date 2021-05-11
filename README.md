@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-GPL3.0-blue.svg)](https://github.com//xutongbao/xutongbao.github.io/blob/master/LICENSE)
 
 
-小米书城 Vue3 版本线上预览地址：[https://xutongbao.github.io/](https://xutongbao.github.io/)。
+小米书城 Vue3 版本线上预览地址：[https://xutongbao.github.io/](https://xutongbao.github.io/),建议使用手机模式打开。
 
 前后端分离版本包括二个仓库：
 - [小米书城后端接口 m-node](https://github.com/xutongbao/m-node)
