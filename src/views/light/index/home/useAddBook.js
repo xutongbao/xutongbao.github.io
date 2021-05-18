@@ -1,4 +1,4 @@
-import { useStore, computed } from "vuex"
+import { useStore } from "vuex"
 
 export default () => {
   const store = useStore()
