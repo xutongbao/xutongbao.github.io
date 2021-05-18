@@ -1,15 +1,21 @@
 import { createApp } from "vue"
-import ElementPlus from "element-plus"
+import { ElImage, ElButton } from "element-plus"
 import App from "./App.vue"
 import router from "./router"
 import store from "./store"
-import 'dayjs/locale/zh-cn'
-import 'element-plus/lib/theme-chalk/index.css'
-import locale from 'element-plus/lib/locale/lang/zh-cn'
+import lang from 'element-plus/lib/locale/lang/zh-cn.js'
+import locale from 'element-plus/lib/locale'
+import "dayjs/locale/zh-cn"
 import "./static/css/light.css"
 
-createApp(App)
+const app = createApp(App)
   .use(store)
   .use(router)
-  .use(ElementPlus, { locale })
-  .mount("#app")
+
+locale.use(lang)
+const components = [ElImage, ElButton]
+components.forEach((component) => {
+  app.component(component.name, component)
+})
+
+app.mount("#app")

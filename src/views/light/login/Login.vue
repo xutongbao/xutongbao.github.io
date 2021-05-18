@@ -41,7 +41,7 @@ export default {
 
     const handleLogin = () => {
       const { username, password } = state
-      showLoading()
+      showLoading(500)
       Api.light.login({ username, password }).then((res) => {
         if (res.code === 200) {
           hideLoading()
