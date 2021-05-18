@@ -9,7 +9,8 @@ export default {
     isListDialogVisible: false,
     addBook: {},
     myBooks: [],
-    detailBook: {}
+    detailBook: {},
+    isLoading: false,
   },
   mutations: {
     setLightState(state, payload) {

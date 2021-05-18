@@ -9,6 +9,7 @@ import { useRoute } from "vue-router"
 import Header from "./Header"
 import Content from './Content'
 import { useStore } from 'vuex'
+import useTools from '../../../utils/useTools'
 
 export default {
   components: {
@@ -21,7 +22,11 @@ export default {
 
     onMounted(() => {
       const { id } = route.params
-      store.dispatch({ type: 'getDetail', id })
+      const { showLoading, hideLoading } = useTools()
+      showLoading(0)
+      store.dispatch({ type: 'getDetail', id }).then(() => {
+        hideLoading()
+      })
     })
   },
 }

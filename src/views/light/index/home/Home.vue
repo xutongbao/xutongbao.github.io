@@ -10,6 +10,7 @@ import { onMounted } from "vue"
 import { useStore } from "vuex"
 import Sidebar from "./Sidebar"
 import List from "./List"
+import useTools from '../../../../utils/useTools'
 
 export default {
   components: {
@@ -18,9 +19,12 @@ export default {
   },
   setup() {
     const store = useStore()
-
+    const { showLoading, hideLoading } = useTools()
     onMounted(() => {
-      store.dispatch({ type: "getLightList" })
+      showLoading()
+      store.dispatch({ type: "getLightList" }).then(() => {
+        hideLoading()
+      })
     })
   },
 }

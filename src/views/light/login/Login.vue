@@ -18,6 +18,7 @@ import { reactive, toRefs } from "vue"
 import { useRouter } from 'vue-router'
 import Icon from "../../../components/light/Icon"
 import Api from "../../../api"
+import useTools from '../../../utils/useTools'
 
 export default {
   components: {
@@ -31,6 +32,7 @@ export default {
     })
 
     const router = useRouter()
+    const { showLoading, hideLoading } = useTools()
 
     const handleVisible = () => {
       const { visible } = state
@@ -39,12 +41,16 @@ export default {
 
     const handleLogin = () => {
       const { username, password } = state
+      showLoading()
       Api.light.login({ username, password }).then((res) => {
         if (res.code === 200) {
+          hideLoading()
           router.push('/light/index/home')
         }
       })
     }
+
+    
 
     return {
       ...toRefs(state),

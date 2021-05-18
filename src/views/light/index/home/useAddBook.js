@@ -1,4 +1,5 @@
 import { useStore } from "vuex"
+import useTools from '../../../../utils/useTools'
 
 export default () => {
   const store = useStore()
@@ -13,9 +14,12 @@ export default () => {
 
   const handleOk = async () => {
     const addBook = store.state.light.addBook
+    const { showLoading, hideLoading  } = useTools()
     if (addBook.count !== '') {
+      showLoading()
       store.dispatch({ type: 'addMyBooks' , book: addBook }).then(() => {
         handleClose()
+        hideLoading()
       })
     }
   }

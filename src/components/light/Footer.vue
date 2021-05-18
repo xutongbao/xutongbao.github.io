@@ -22,6 +22,7 @@ import Icon from "./Icon"
 import Badge from "./Badge"
 import { computed, onMounted } from "vue"
 import { useStore } from "vuex"
+import useTools from '../../utils/useTools'
 
 export default {
   components: {
@@ -38,7 +39,10 @@ export default {
     )
 
     onMounted(async () => {
-      store.dispatch({ type: "getMyBooks" })
+      const { hideLoading } = useTools()
+      store.dispatch({ type: "getMyBooks" }).then((res) => {
+        hideLoading()
+      })
     })
     return {
       count,
