@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { ElImage } from "element-plus"
 import Stars from "@/components/light/Stars"
 import { useStore } from "vuex"
 import { useRouter } from 'vue-router'
@@ -33,6 +34,7 @@ export default {
   },
   components: {
     Stars,
+    ElImage,
   },
   setup(props) {
     const store = useStore()

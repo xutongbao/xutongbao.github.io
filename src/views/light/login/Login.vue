@@ -3,7 +3,11 @@
     <input v-model="username" autofocus />
   </div>
   <div>
-    <input v-model="password" :type="visible ? 'text' : 'password'" @keyup.enter="handleLogin" />
+    <input
+      v-model="password"
+      :type="visible ? 'text' : 'password'"
+      @keyup.enter="handleLogin"
+    />
     <Icon
       :name="visible ? 'show' : 'hide'"
       className="m-login-icon"
@@ -15,10 +19,10 @@
 
 <script>
 import { reactive, toRefs } from "vue"
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router"
 import Icon from "../../../components/light/Icon"
 import Api from "../../../api"
-import useTools from '../../../utils/useTools'
+import useTools from "../../../utils/useTools"
 
 export default {
   components: {
@@ -45,17 +49,15 @@ export default {
       Api.light.login({ username, password }).then((res) => {
         if (res.code === 200) {
           hideLoading()
-          router.push('/light/index/home')
+          router.push("/light/index/home")
         }
       })
     }
 
-    
-
     return {
       ...toRefs(state),
       handleVisible,
-      handleLogin
+      handleLogin,
     }
   },
 }
