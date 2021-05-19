@@ -11,6 +11,7 @@ export default {
     myBooks: [],
     detailBook: {},
     isLoading: false,
+    scrollTop: 0,
   },
   mutations: {
     setLightState(state, payload) {

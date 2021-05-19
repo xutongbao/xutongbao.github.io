@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import { onMounted } from "vue"
+import { onMounted, on } from "vue"
 import { useStore } from "vuex"
 import Sidebar from "./Sidebar"
 import List from "./List"
-import useTools from '../../../../utils/useTools'
+import useTools from "../../../../utils/useTools"
 
 export default {
   components: {
@@ -21,10 +21,13 @@ export default {
     const store = useStore()
     const { showLoading, hideLoading } = useTools()
     onMounted(() => {
-      showLoading()
-      store.dispatch({ type: "getLightList" }).then(() => {
-        hideLoading()
-      })
+      if (store.state.light.list.length === 0) {
+        showLoading()
+        store.dispatch({ type: "getLightList" }).then(() => {
+          hideLoading()
+        })
+      }
+      //store.commit({ type: 'setLightState', key: 'currentId', value: 0 })
     })
   },
 }

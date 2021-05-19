@@ -1,4 +1,5 @@
 import { useStore } from "vuex"
+import { onMounted } from "vue"
 
 let topArr = []
 let timer
@@ -6,19 +7,37 @@ export default () => {
   const store = useStore()
 
   const handleScroll = (e) => {
+    let { scrollTop } = e.target
     if (store.state.light.isRealScroll) {
-      let { scrollTop } = e.target
-      scrollTop += topArr[0]
+      const scrollTopNew = scrollTop + topArr[0]
       const index = topArr.findIndex(
-        (top, index, arr) => top <= scrollTop && scrollTop < arr[index + 1]
+        (top, index, arr) =>
+          top <= scrollTopNew && scrollTopNew < arr[index + 1]
       )
       if (index !== store.state.light.currentId) {
         store.commit({ type: "setLightState", key: "currentId", value: index })
       }
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        store.commit({
+          type: "setLightState",
+          key: "scrollTop",
+          value: scrollTop,
+        })
+      }, 300)
     } else {
       clearTimeout(timer)
       timer = setTimeout(() => {
-        store.commit({ type: 'setLightState', key: 'isRealScroll', value: true })
+        store.commit({
+          type: "setLightState",
+          key: "isRealScroll",
+          value: true,
+        })
+        store.commit({
+          type: "setLightState",
+          key: "scrollTop",
+          value: scrollTop,
+        })
       }, 300)
     }
   }
@@ -27,8 +46,18 @@ export default () => {
     topArr = arr
   }
 
+  let listRef
+  const handeListRef = (el) => {
+    listRef = el
+  }
+
+  onMounted(() => {
+    listRef.scrollTop = store.state.light.scrollTop
+  })
+
   return {
+    handeListRef,
     handleScroll,
-    handleTopArr
+    handleTopArr,
   }
 }

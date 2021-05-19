@@ -6,7 +6,7 @@ const routes = [...light]
 
 const router = createRouter({
   history: createWebHashHistory(process.env.BASE_URL),
-  routes,
+  routes
 })
 
 router.beforeEach((to, from, next) => {
