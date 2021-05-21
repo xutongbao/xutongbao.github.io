@@ -1,5 +1,5 @@
 import { useStore } from "vuex"
-import { onMounted } from "vue"
+import { onMounted, onUpdated } from "vue"
 
 let topArr = []
 let timer
@@ -51,8 +51,13 @@ export default () => {
     listRef = el
   }
 
+  onUpdated(() => {
+    topArr = [...document.getElementsByClassName('js-category')].map(item => item.offsetTop)
+    topArr.push(Infinity)   
+  })
+
   onMounted(() => {
-    listRef.scrollTop = store.state.light.scrollTop
+    listRef.scrollTop = store.state.light.scrollTop  
   })
 
   return {

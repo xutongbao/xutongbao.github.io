@@ -4,7 +4,6 @@
       v-for="category in list"
       :key="category.id"
       :category="category"
-      @onTopArr="handleTopArr"
     ></Category>
     <Teleport to="body">
       <Dialog
@@ -33,7 +32,7 @@
 </template>
 
 <script>
-import { computed } from "vue"
+import { computed, onMounted } from "vue"
 import { useStore } from "vuex"
 import Category from "./Category"
 import useListScroll from "./useListScroll"
@@ -53,7 +52,7 @@ export default {
     const isListDialogVisible = computed(
       () => store.state.light.isListDialogVisible
     )
-    const { handeListRef, handleScroll, handleTopArr } = useListScroll()
+    const { handeListRef, handleScroll } = useListScroll()
     const {
       handleClose,
       handleOk,
@@ -68,7 +67,6 @@ export default {
       isListDialogVisible,
       handeListRef,
       handleScroll,
-      handleTopArr,
       handleClose,
       handleOk,
       addBook,
@@ -81,4 +79,3 @@ export default {
 </script>
 
 <style></style>
-

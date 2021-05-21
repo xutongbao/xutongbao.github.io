@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { onMounted } from 'vue'
 import CategoryItem from "./CategoryItem"
 
 export default {
@@ -24,14 +23,7 @@ export default {
   components: {
     CategoryItem,
   },
-  emits: ['onTopArr'],
-  setup(props, { emit }) {
-    onMounted(() => {
-      const topArr = [...document.getElementsByClassName('js-category')].map(item => item.offsetTop)
-      topArr.push(Infinity)
-      emit('onTopArr', topArr)
-    })
-  }
+  emits: ['onTopArr']
 }
 </script>
 
