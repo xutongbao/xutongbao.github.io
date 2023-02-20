@@ -1,7 +1,7 @@
 import axios from "axios"
 import router from "../router"
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "development" && false) {
   axios.defaults.baseURL = 'http://localhost:81' //"http://localhost:81"
 } else {
   axios.defaults.baseURL = 'https://rough-tan-board.glitch.me'
